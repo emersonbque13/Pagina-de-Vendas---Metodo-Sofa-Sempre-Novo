@@ -156,13 +156,15 @@ export default function App() {
             <GiroCleanLogo className="h-8 md:h-10" variant="horizontal" />
             <span className="text-amber-500 text-[10px] md:text-xs font-black uppercase bg-amber-50 px-2 py-0.5 rounded border border-amber-200 shrink-0">PRO®</span>
           </div>
-          <button
-            onClick={() => setCheckoutModalOpen(true)}
-            className="bg-navy-900 hover:bg-navy-800 text-white font-display text-xs md:text-sm font-black px-5 py-2.5 rounded-xl transition-all shadow active:translate-y-0.5 cursor-pointer uppercase tracking-wider"
-            type="button"
+          <a
+            href="https://pay.kiwify.com.br/zIqMrjt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-navy-900 hover:bg-navy-800 text-white font-display text-xs md:text-sm font-black px-5 py-2.5 rounded-xl transition-all shadow active:translate-y-0.5 cursor-pointer uppercase tracking-wider inline-block text-center"
+            id="header-cta-button"
           >
             Quero o Método
-          </button>
+          </a>
         </div>
       </header>
 
@@ -372,15 +374,16 @@ export default function App() {
                   ⚠️ Oferta disponível apenas para os próximos 12 compradores
                 </span>
                 
-                <button
-                  onClick={() => setCheckoutModalOpen(true)}
+                <a
+                  href="https://pay.kiwify.com.br/zIqMrjt"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full mt-3 cta-button-minimal text-slate-950 font-display font-black text-sm md:text-base py-4 rounded-xl shadow-lg hover:brightness-110 active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2"
-                  type="button"
                   id="hero-cta-button"
                 >
                   SIM! QUERO MEU SOFÁ NOVO AGORA
                   <ArrowRight className="h-4.5 w-4.5 stroke-[3]" />
-                </button>
+                </a>
               </div>
 
               {/* Subtle background glow */}
@@ -532,13 +535,15 @@ export default function App() {
               <p className="text-xs font-bold text-amber-400">🚨 Sabia que ácaros, restos de pele e resíduos corporais se acumulam no sofá diariamente?</p>
               <p className="text-[11px] text-slate-400 mt-1">Giro Clean recomenda a higienização a cada 6 meses, principalmente em lares com crianças e animais de estimação.</p>
             </div>
-            <button
-              onClick={() => setCheckoutModalOpen(true)}
-              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-display font-black text-xs py-3 px-6 rounded-xl shrink-0 transition-colors shadow active:translate-y-0.5 uppercase tracking-wider"
-              type="button"
+            <a
+              href="https://pay.kiwify.com.br/zIqMrjt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-display font-black text-xs py-3 px-6 rounded-xl shrink-0 transition-colors shadow active:translate-y-0.5 uppercase tracking-wider inline-block text-center"
+              id="perigos-cta-button"
             >
               Quero Eliminar esses Perigos
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -1182,15 +1187,16 @@ export default function App() {
               </div>
             </div>
 
-            <button
-              onClick={() => setCheckoutModalOpen(true)}
-              className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-display font-black text-base md:text-lg py-4 px-6 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 hover:translate-y-[-2px] active:translate-y-[1px] cursor-pointer border-b-4 border-amber-600 uppercase tracking-wide"
-              type="button"
+            <a
+              href="https://pay.kiwify.com.br/zIqMrjt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-display font-black text-base md:text-lg py-4 px-6 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 hover:translate-y-[-2px] active:translate-y-[1px] cursor-pointer border-b-4 border-amber-600 uppercase tracking-wide text-center inline-block"
               id="cta-final-box"
             >
               SIM! QUERO ECONOMIZAR E APRENDER
               <ArrowRight className="h-5 w-5 stroke-[3]" />
-            </button>
+            </a>
 
             <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-slate-400 font-mono">
               <span className="flex items-center gap-1">
