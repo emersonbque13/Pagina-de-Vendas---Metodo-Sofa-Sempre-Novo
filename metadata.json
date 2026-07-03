@@ -1,0 +1,6 @@
+{
+  "name": "Método Sofá Sempre Novo",
+  "description": "Landing page de alta conversão para o e-book Método Sofá Sempre Novo, otimizada para celular, com ferramentas interativas de antes/depois, calculadora de diluição e garantia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
