@@ -8,7 +8,8 @@ import {
   Sparkles, Check, AlertCircle, ShieldCheck, 
   ChevronRight, HelpCircle, Award, Clock, ArrowRight,
   Star, DollarSign, CheckCircle2, XCircle, Info,
-  Flame, Lock, ShieldAlert, Heart, Calendar, MessageCircle, Play
+  Flame, Lock, ShieldAlert, Heart, Calendar, MessageCircle, Play,
+  FileText, Smartphone, Laptop, Download
 } from 'lucide-react';
 
 import GiroCleanLogo from './components/GiroCleanLogo';
@@ -197,7 +198,7 @@ export default function App() {
             </h1>
 
             <p className="text-base text-[#475569] leading-relaxed max-w-xl font-medium">
-              Aprenda o segredo profissional para higienizar seu próprio sofá com segurança, economizando até R$ 600 em cada limpeza.
+              O <strong className="text-navy-900 font-bold">Guia Digital Completo</strong> que une um <strong className="text-amber-600 font-bold">Manual Prático em PDF</strong> para download com um <strong className="text-blue-600 font-bold">E-book Interativo Digital</strong>. Aprenda o segredo profissional para higienizar seu próprio sofá com total segurança economizando centenas de reais.
             </p>
 
             {/* Bullets */}
@@ -675,6 +676,140 @@ export default function App() {
                 </div>
               </div>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================
+          SEÇÃO EXTRA - FORMATO EXCLUSIVO (PDF + Ebook Interativo)
+          ======================================================== */}
+      <section className="py-14 bg-gradient-to-b from-slate-900 to-navy-950 text-white relative overflow-hidden border-b border-slate-800">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.08),transparent)] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <span className="text-xs font-mono font-black uppercase text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20 tracking-wider">
+              📱 Experiência Digital Dupla e Completa
+            </span>
+            <h2 className="font-display font-black text-2xl md:text-3xl text-white tracking-tight mt-3 leading-snug uppercase">
+              Você recebe <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-400">Duas Versões Prontas</span> para usar hoje mesmo:
+            </h2>
+            <p className="text-xs md:text-sm text-slate-300 mt-2 font-medium max-w-lg mx-auto">
+              Sem enrolação ou termos difíceis. Desenvolvemos o material em dois formatos complementares projetados para dar o máximo de agilidade e resultado na beira do seu sofá.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            
+            {/* CARD 1: MANUAL PRÁTICO EM PDF */}
+            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="bg-amber-500/10 text-amber-400 p-3.5 rounded-2xl border border-amber-500/20 group-hover:scale-110 transition-transform">
+                    <FileText className="h-6 w-6" />
+                  </div>
+                  <span className="bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                    Offline & Download Direto
+                  </span>
+                </div>
+                
+                <h3 className="font-display font-black text-lg md:text-xl text-white uppercase tracking-wide">
+                  1. Manual de Sobrevivência (PDF)
+                </h3>
+                <p className="text-xs text-slate-300 mt-2 mb-6 leading-relaxed font-medium">
+                  Um livro digital em alta definição perfeitamente diagramado, leve e pronto para baixar. Você abre em qualquer leitor de PDF e consulta na beira do sofá, mesmo estando offline.
+                </p>
+
+                <ul className="space-y-3.5 border-t border-slate-800/80 pt-5">
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Download Imediato e Vitalício:</strong> Guarde no seu celular, tablet, computador ou compartilhe com a família.</span>
+                  </li>
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Diagramação de Alta Resolução:</strong> Design limpo, infográficos explicativos e fontes legíveis para leitura rápida.</span>
+                  </li>
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Formato Imprimível:</strong> Configure para impressão doméstica ou encadernação se preferir folhear e fazer anotações à caneta.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-8 bg-slate-950/50 p-4 rounded-xl border border-slate-850 flex items-center justify-between">
+                <span className="text-[10px] text-slate-400 font-mono">TAMANHO: ~12.4 MB</span>
+                <span className="text-[10px] text-emerald-400 font-mono font-bold flex items-center gap-1">
+                  <Download className="h-3 w-3 animate-bounce" /> PRONTO PARA BAIXAR
+                </span>
+              </div>
+            </div>
+
+            {/* CARD 2: E-BOOK INTERATIVO DIGITAL */}
+            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="bg-blue-500/10 text-blue-400 p-3.5 rounded-2xl border border-blue-500/20 group-hover:scale-110 transition-transform">
+                    <Smartphone className="h-6 w-6" />
+                  </div>
+                  <span className="bg-blue-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                    Plataforma Web Exclusiva
+                  </span>
+                </div>
+                
+                <h3 className="font-display font-black text-lg md:text-xl text-white uppercase tracking-wide">
+                  2. E-book Interativo Web App
+                </h3>
+                <p className="text-xs text-slate-300 mt-2 mb-6 leading-relaxed font-medium">
+                  Uma plataforma online integrada onde as instruções ganham vida. Além da teoria, você conta com calculadoras digitais de diluição e ferramentas em tempo real para não errar.
+                </p>
+
+                <ul className="space-y-3.5 border-t border-slate-800/80 pt-5">
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Ferramentas Inteligentes Integradas:</strong> Desbloqueie a versão completa da calculadora de diluição para dosar perfeitamente para qualquer tipo de sujeira e tamanho de borrifador.</span>
+                  </li>
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Checklist Dinâmico Online:</strong> Marque o progresso de cada etapa no celular e monitore o tempo exato de ação dos produtos com timers interativos.</span>
+                  </li>
+                  <li className="flex gap-2.5 items-start text-xs text-slate-200">
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Acesso Instantâneo Sem Instalar:</strong> Não consome memória do aparelho. Funciona direto pelo navegador com alta velocidade e segurança.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-8 bg-slate-950/50 p-4 rounded-xl border border-slate-850 flex items-center justify-between">
+                <span className="text-[10px] text-slate-400 font-mono">SUPORTE: IOS & ANDROID</span>
+                <span className="text-[10px] text-blue-400 font-mono font-bold flex items-center gap-1">
+                  <Laptop className="h-3 w-3" /> NAVEGADOR DEDICADO
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Core attractiveness statement / box */}
+          <div className="mt-10 bg-gradient-to-r from-amber-500/10 via-amber-500/15 to-emerald-500/10 border border-amber-500/30 rounded-2xl p-5 text-center flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-left space-y-1">
+              <h4 className="font-sans font-black text-sm text-white uppercase tracking-wider flex items-center gap-2">
+                <Sparkles className="h-4.5 w-4.5 text-amber-400 fill-amber-400" />
+                Duplo Valor por Apenas R$ 37,00!
+              </h4>
+              <p className="text-xs text-slate-300 max-w-xl font-medium leading-relaxed">
+                Você compra um único produto e recebe duas ferramentas extremamente complementares. Use o <strong>Manual em PDF</strong> para estudar as técnicas offline e o <strong>E-book Interativo</strong> para simular dosagens e checar processos.
+              </p>
+            </div>
+            <a
+              href="https://pay.kiwify.com.br/zIqMrjt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-sans font-black text-xs py-3 px-5 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.97] uppercase tracking-wider shrink-0 text-center shadow-lg"
+            >
+              Comprar Versão Premium
+            </a>
           </div>
 
         </div>

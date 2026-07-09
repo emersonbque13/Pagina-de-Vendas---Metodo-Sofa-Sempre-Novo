@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Beaker, Settings, AlertCircle, Sparkles, Check } from 'lucide-react';
+import { Beaker, Settings, AlertCircle, Sparkles, Check, Lock } from 'lucide-react';
 
 interface DilutionRatio {
   label: string;
@@ -13,9 +13,10 @@ interface DilutionRatio {
 }
 
 export default function DilutionCalculator() {
-  const [dirtLevel, setDirtLevel] = useState<'leve' | 'media' | 'pesada'>('media');
-  const [containerSize, setContainerSize] = useState<number>(1000); // in ml
+  const [dirtLevel, setDirtLevel] = useState<'leve' | 'media' | 'pesada'>('leve');
+  const [containerSize, setContainerSize] = useState<number>(500); // in ml
   const [productType, setProductType] = useState<string>('flotador');
+  const [lockAlert, setLockAlert] = useState<'dirt' | 'capacity' | null>(null);
 
   const dirtLevels: Record<'leve' | 'media' | 'pesada', DilutionRatio> = {
     leve: { label: 'Sujeira Leve (Manutenção)', ratio: 40, description: 'Indicado para poeira do dia a dia, manutenção mensal e odores suaves.' },
@@ -99,22 +100,35 @@ export default function DilutionCalculator() {
             2. Nível de Sujeira do Sofá:
           </label>
           <div className="grid grid-cols-3 gap-2">
-            {(['leve', 'media', 'pesada'] as const).map((level) => (
-              <button
-                key={level}
-                onClick={() => setDirtLevel(level)}
-                className={`p-3 rounded-xl border text-center transition-all ${
-                  dirtLevel === level
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                    : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
-                }`}
-                type="button"
-              >
-                <span className="text-xs font-extrabold uppercase block tracking-wider">
-                  {level === 'leve' ? 'Leve 1:40' : level === 'media' ? 'Média 1:20' : 'Pesada 1:10'}
-                </span>
-              </button>
-            ))}
+            {(['leve', 'media', 'pesada'] as const).map((level) => {
+              const isLocked = level !== 'leve';
+              return (
+                <button
+                  key={level}
+                  onClick={() => {
+                    if (isLocked) {
+                      setLockAlert('dirt');
+                    } else {
+                      setDirtLevel(level);
+                      if (lockAlert === 'dirt') setLockAlert(null);
+                    }
+                  }}
+                  className={`p-3 rounded-xl border text-center transition-all relative overflow-hidden ${
+                    isLocked
+                      ? 'bg-slate-100/80 text-slate-400 border-slate-200/60 cursor-pointer hover:bg-slate-150'
+                      : dirtLevel === level
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-md'
+                        : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
+                  }`}
+                  type="button"
+                >
+                  <span className="text-xs font-extrabold uppercase flex items-center justify-center gap-1.5 tracking-wider">
+                    {isLocked && <Lock className="h-3.5 w-3.5 text-amber-500 shrink-0" />}
+                    {level === 'leve' ? 'Leve 1:40' : level === 'media' ? 'Média 1:20' : 'Pesada 1:10'}
+                  </span>
+                </button>
+              );
+            })}
           </div>
           <p className="text-[11px] text-slate-500 mt-2 italic bg-slate-100/80 p-2.5 rounded-lg border border-slate-200/50 leading-relaxed">
             {dirtLevels[dirtLevel].description}
@@ -137,15 +151,58 @@ export default function DilutionCalculator() {
             max="5000"
             step="500"
             value={containerSize}
-            onChange={(e) => setContainerSize(Number(e.target.value))}
+            onChange={(e) => {
+              const val = Number(e.target.value);
+              if (val > 500) {
+                setLockAlert('capacity');
+                setContainerSize(500);
+              } else {
+                setContainerSize(val);
+                if (lockAlert === 'capacity') setLockAlert(null);
+              }
+            }}
             className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
           />
           <div className="flex justify-between text-[10px] text-slate-400 font-mono mt-1">
-            <span>500 ml (Borrifador pequeno)</span>
-            <span>1.5 Litros</span>
-            <span>5 Litros (Extratora)</span>
+            <span>500 ml (Disponível)</span>
+            <span className="flex items-center gap-0.5 text-slate-400/80">
+              <Lock className="h-2.5 w-2.5 text-amber-500 shrink-0" /> 1.5 Litros (Bloqueado)
+            </span>
+            <span className="flex items-center gap-0.5 text-slate-400/80">
+              <Lock className="h-2.5 w-2.5 text-amber-500 shrink-0" /> 5 Litros (Bloqueado)
+            </span>
           </div>
         </div>
+
+        {/* Locked Feature Conversion Box */}
+        {lockAlert && (
+          <div className="bg-amber-50/95 border-2 border-amber-400 rounded-2xl p-4 md:p-5 text-slate-800 shadow-md transition-all">
+            <div className="flex gap-3 items-start mb-3">
+              <div className="bg-amber-100 text-amber-600 p-2 rounded-xl shrink-0 mt-0.5">
+                <Lock className="h-5 w-5" />
+              </div>
+              <div>
+                <h5 className="font-sans font-black text-sm text-slate-950 uppercase tracking-wide flex items-center gap-1.5">
+                  Recurso Exclusivo Bloqueado
+                </h5>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed font-medium">
+                  {lockAlert === 'dirt' 
+                    ? 'A proporção exata de diluição de produtos químicos para remover manchas antigas, cheiro de xixi de pet, mofo e gordura corporal (Sujeiras Médias e Pesadas) é liberada apenas no material completo.' 
+                    : 'As regulagens de diluição para borrifadores de grande porte (1 Litro, 1.5 Litros, 2 Litros) e extratoras de alta capacidade são exclusivas de quem adquire o e-book completo.'}
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://pay.kiwify.com.br/zIqMrjt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-sans font-black text-xs md:text-sm py-3.5 px-4 rounded-xl shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all uppercase tracking-wider text-center"
+            >
+              <Sparkles className="h-4 w-4 fill-slate-950 animate-pulse" />
+              Desbloquear Calculadora Completa por R$ 37,00
+            </a>
+          </div>
+        )}
 
         {/* Results Box */}
         <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white rounded-2xl p-5 shadow-inner relative overflow-hidden">
